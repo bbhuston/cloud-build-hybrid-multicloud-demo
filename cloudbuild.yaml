@@ -1,0 +1,12 @@
+steps:
+- name: 'build image'
+  args: ['echo', 'hello world!']
+- name: 'push image'
+  args: ['echo', 'hello world!']
+options:
+  # Overrides the default value of 60 GB
+  diskSizeGb: '10'
+  anthosCluster:
+    membership: projects/$PROJECT_NUMBER/locations/global/memberships/${_CLUSTER_NAME}
+substitutions:
+  _CLUSTER_NAME: gke-cluster-001 # default value
