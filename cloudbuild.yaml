@@ -16,6 +16,7 @@ steps:
     gcloud container hub memberships get-credentials ${_CLUSTER_NAME} && \
     cat $(pwd)/gateway-kubeconfig && \
     cat deployment.yaml && \
+    kubectl get pod -A && \
     kubectl --kubeconfig gateway-kubeconfig apply -f deployment.yaml
 options:
   # Overrides the default value of 60 GB
