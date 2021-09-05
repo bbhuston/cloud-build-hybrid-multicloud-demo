@@ -3,7 +3,7 @@ apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
   name: "nginx-1"
-  namespace: "default"
+  namespace: "cloudbuild"
   labels:
     app: "nginx-1"
 spec:
@@ -26,7 +26,7 @@ apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
 metadata:
   name: "nginx-1-hpa-c0ex"
-  namespace: "default"
+  namespace: "cloudbuild"
   labels:
     app: "nginx-1"
 spec:
