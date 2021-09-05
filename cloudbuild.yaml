@@ -1,7 +1,7 @@
 steps:
-- name: 'build image'
+- name: 'ubuntu'
   args: ['echo', 'hello world!']
-- name: 'push image'
+- name: 'ubuntu'
   args: ['echo', 'hello world!']
 options:
   # Overrides the default value of 60 GB
