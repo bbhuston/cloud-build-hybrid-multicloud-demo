@@ -1,10 +1,10 @@
 steps:
-#- id: Build Image
-#  name: 'gcr.io/cloud-builders/docker'
-#  args: ['build', '--tag=us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry:v0.1.0', '--file=Dockerfile', '.']
-#- id: Push Image
-#  name: 'gcr.io/cloud-builders/docker'
-#  args: ['push', 'us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry:v0.1.0']
+- id: Build Image
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry/nginx-example:v0.1.0', '--file=Dockerfile', '.']
+- id: Push Image
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry/nginx-example:v0.1.0']
 - id: Deploy to Anthos cluster
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: /bin/sh
@@ -21,4 +21,5 @@ options:
   anthosCluster:
     membership: projects/$PROJECT_NUMBER/locations/global/memberships/${_CLUSTER_NAME}
 substitutions:
-  _CLUSTER_NAME: gke-cluster-001 # default value
+  # default values
+  _CLUSTER_NAME: gke-cluster-001
