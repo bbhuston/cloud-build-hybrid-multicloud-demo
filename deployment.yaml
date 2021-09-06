@@ -3,7 +3,7 @@ apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
   name: "nginx-1"
-  namespace: "cloudbuild"
+  namespace: "default"
   labels:
     app: "nginx-1"
 spec:
@@ -18,15 +18,15 @@ spec:
     spec:
       containers:
       - name: "nginx-1"
-#        image: "us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry:v0.1.0"
-        image: "nginx:latest"
+        image: "us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry:v0.1.0"
+#        image: "nginx:latest"
 
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
 metadata:
   name: "nginx-1-hpa-c0ex"
-  namespace: "cloudbuild"
+  namespace: "default"
   labels:
     app: "nginx-1"
 spec:
@@ -41,4 +41,3 @@ spec:
     resource:
       name: "cpu"
       targetAverageUtilization: 80
-
