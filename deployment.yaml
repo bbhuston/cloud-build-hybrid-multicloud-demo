@@ -30,7 +30,7 @@ spec:
       serviceAccountName: cloud-build-hybrid
       containers:
       - name: "nginx-1"
-        image: "us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry:v0.1.0"
+        image: "us-docker.pkg.dev/benhuston-abm/cloud-build-hybrid-container-registry/nginx-example"
 #        image: "nginx:latest"
 
 ---
